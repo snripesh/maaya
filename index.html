@@ -4,52 +4,142 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maaya Limited</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Outfit', sans-serif; background: #f4f4f4; color: #222; }
-    nav { background: #fff; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 999; }
-    nav .logo { font-size: 1.8rem; font-weight: bold; color: #003366; }
+    body { font-family: 'Outfit', sans-serif; background: #f4f4f4; color: #222; line-height: 1.6; }
+
+    nav {
+      background: #1a1a2e; padding: 1.2rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky; top: 0; z-index: 999;
+    }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
     nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav a { color: #003366; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
-    nav a:hover { color: #0066cc; }
+    nav a {
+      color: #ffffff; text-decoration: none; font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9ca24; }
 
     header {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; color: #fff; padding: 0 1rem;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; margin-bottom: 1rem;
+      animation: fadeInUp 1s ease forwards;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    header p {
+      font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    header .cta {
+      padding: 0.8rem 2rem; background: #1a1a2e;
+      color: white; border: none; border-radius: 30px;
+      font-weight: bold; cursor: pointer;
+      text-transform: uppercase; transition: background 0.3s ease;
+      text-decoration: none;
+    }
+    header .cta:hover {
+      background: #12122b; }
+
+    section {
+      padding: 4rem 2rem; max-width: 1100px; margin: auto;
+    }
+    .services h2, .about h2, .contact h2 {
+      text-align: center; margin-bottom: 2rem;
+      font-family: 'Playfair Display', serif; color: #002244;
+    }
+
+    .cards {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+    }
+    .card {
+      background: #fff; border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 2rem; width: 300px; text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card img { width: 60px; margin-bottom: 1rem; }
+    .card h3 { color: #002244; margin-bottom: 0.5rem; }
+
+    .about p {
+      text-align: center; max-width: 800px;
+      margin: auto; color: #444;
+    }
+
+    .contact form {
+      display: grid; gap: 1rem; max-width: 600px; margin: auto;
+    }
+    .contact input, .contact textarea {
+      padding: 1rem; border: 1px solid #ccc;
+      border-radius: 8px; width: 100%; font-family: inherit;
+    }
+    .contact input:focus, .contact textarea:focus {
+      outline: none; border-color: #0055aa;
+      box-shadow: 0 0 0 3px rgba(0,85,170,0.1);
+    }
+    .contact button {
+      padding: 1rem; background: #002244;
+      color: white; border: none; border-radius: 8px;
+      font-weight: bold; cursor: pointer;
+    }
+    .contact button:hover { background: #001122; }
+
+    footer {
+      background: #002244; color: white;
+      text-align: center; padding: 2rem; margin-top: 3rem;
+    }
+    footer p { margin: 0.2rem 0; }
+    footer .footer-content {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      color: #fff;
-      padding: 0 1rem;
+      gap: 2rem;
+      margin-bottom: 1rem;
     }
-    header h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-    header p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
-    header .cta { padding: 0.8rem 2rem; background: #0066cc; color: white; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+    footer .footer-content > div {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
 
-    section { padding: 4rem 2rem; max-width: 1100px; margin: auto; }
-    .services h2, .about h2, .contact h2 { text-align: center; margin-bottom: 2rem; color: #003366; }
-
-    .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-    .card { background: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 2rem; width: 300px; text-align: center; }
-    .card img { width: 60px; margin-bottom: 1rem; }
-    .card h3 { color: #003366; margin-bottom: 0.5rem; }
-
-    .about p { text-align: center; max-width: 800px; margin: auto; color: #444; }
-
-    .contact form { display: grid; gap: 1rem; max-width: 600px; margin: auto; }
-    .contact input, .contact textarea { padding: 1rem; border: 1px solid #ccc; border-radius: 8px; width: 100%; }
-    .contact button { padding: 1rem; background: #003366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-
-    footer { background: #003366; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Maaya Limited</div>
+  <div class="logo">
+    <img src="logo.png" alt="Maaya Logo">
+    <span style="color: white;">Maaya</span>
+  </div>
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -58,9 +148,9 @@
 </nav>
 
 <header>
-  <h1>Innovation Across Industries</h1>
+  <h1 style="color: #ffffff; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Innovation Across Industries</h1>
   <p>From retail strategy to media production and IT consultancy, we bring creative and technical solutions to help your business thrive.</p>
-  <button class="cta">Learn More</button>
+  <a href="#services" class="cta">Learn More</a>
 </header>
 
 <section id="services" class="services">
@@ -86,14 +176,21 @@
 
 <section id="about" class="about">
   <h2>About Us</h2>
-  <p>Founded in 2017, Maaya Limited is a dynamic UK-based company operating across IT, media, and retail. Our mission is to drive innovation and deliver scalable, effective solutions that empower businesses in every sector we touch.</p>
+  <p>
+    Maaya Limited is a multi-disciplinary innovation partner helping organisations adapt, scale, and thrive in an increasingly digital, experience-driven economy.
+    From cloud-native software platforms to compelling media storytelling and next-wave retail solutions, we bring together technologists, strategists, creatives,
+    and commercial operators under one roof. The result: joined‑up thinking that turns fragmented challenges into integrated growth opportunities.
+  </p>
+  <br />
+  <p>
+    We were created in 2017 with a simple premise: businesses shouldn’t have to stitch together a dozen vendors to move forward. When technology, brand narrative,
+    and customer experience align, transformation sticks. Maaya exists to make that alignment real and repeatable.
+  </p>
 </section>
-
 
 <section id="contact" class="contact">
   <h2>Let's Talk</h2>
-  <form name="contact" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="contact">
+  <form action="https://formspree.io/f/mnnzpjzd" method="POST">
     <input type="text" name="name" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -101,11 +198,21 @@
   </form>
 </section>
 
-
 <footer>
-  <h3>Maaya Limited</h3>
-  <p>71 Norman Crescent, Pinner, England, HA5 3QH</p>
-  <p>Email: maayaltd@gmail.com</p>
+  <div class="footer-content">
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <h3>Maaya Limited</h3>
+      <p><i class="fa fa-map-marker"></i> 71 Norman Crescent, Pinner, England, HA5 3QH</p>
+      <p><i class="fa fa-envelope"></i> maayaltd@gmail.com</p>
+    </div>
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.1234567890!2d-0.4201234!3d51.5923456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487673df0f000001%3A0xabcdef1234567890!2s71%20Norman%20Crescent%2C%20Pinner%20HA5%203QH!5e0!3m2!1sen!2suk!4v1628161234567!5m2!1sen!2suk"
+        width="100%" height="220" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+  <p>&copy; 2025 Maaya Limited. All rights reserved.</p>
 </footer>
 
 </body>
